@@ -221,6 +221,30 @@
   .step .sx{font-size:16px;font-weight:800;letter-spacing:-.01em}
   .step .sx span{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
 
+  /* ---------- app screenshots ---------- */
+  .shots-row{
+    display:flex;gap:16px;overflow-x:auto;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    padding:4px 2px 12px;scrollbar-width:none;
+  }
+  .shots-row::-webkit-scrollbar{display:none}
+  .phone{flex:0 0 auto;width:194px;scroll-snap-align:center;
+    display:flex;flex-direction:column;align-items:center;margin:0}
+  .phone .frame{
+    position:relative;width:100%;
+    background:#0f0a26;border-radius:30px;padding:7px;
+    box-shadow:var(--shadow);
+  }
+  .phone .notch{
+    position:absolute;top:9px;left:50%;transform:translateX(-50%);
+    width:46px;height:4px;border-radius:999px;background:rgba(255,255,255,.16);z-index:2;
+  }
+  .phone img{display:block;width:100%;border-radius:24px}
+  .phone figcaption{
+    font-size:12.5px;font-weight:700;color:var(--muted);
+    text-align:center;margin-top:12px;max-width:19ch;line-height:1.35;
+  }
+
   /* ---------- any language ---------- */
   .lang{background:linear-gradient(180deg,#faf8ff,#f3eeff);border-radius:24px;border:1px solid var(--line);padding:26px 20px;text-align:center}
   .bubbles{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:16px 0 18px}
@@ -295,6 +319,8 @@
     .compare{grid-template-columns:1fr 1fr;max-width:780px;margin:0 auto}
     .steps{grid-template-columns:repeat(3,1fr);max-width:880px;margin:0 auto}
     .step{flex-direction:column;align-items:flex-start;gap:14px}
+    .shots-row{justify-content:flex-start;max-width:880px;margin:0 auto}
+    .phone{width:220px}
     .lang{max-width:780px;margin:0 auto;padding:40px 30px}
     .grid{grid-template-columns:repeat(6,1fr);max-width:880px;margin:0 auto}
     .band .wrap{max-width:720px}
@@ -443,6 +469,43 @@
         <div class="n">3</div>
         <div class="sx">WhatsApp वर पाठवा<span>ग्राहक किंवा डिलिव्हरी स्टाफला एका टॅपमध्ये पाठवा</span></div><!-- i18n -->
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP SCREENSHOTS ============ -->
+<section>
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <h2>Kiko ला काम करताना पाहा</h2><!-- i18n -->
+      <p>कॉलपासून WhatsApp वर तयार ऑर्डरपर्यंत — प्रत्येक पायरी.</p><!-- i18n -->
+    </div>
+    <div class="shots-row">
+      <figure class="phone">
+        <div class="frame"><div class="notch"></div>
+          <img src="../screens/call.png" alt="Incoming customer call being recorded by Kiko" loading="lazy" width="360" height="640"></div>
+        <figcaption>ग्राहक कॉल करतो — Kiko रेकॉर्ड करते</figcaption><!-- i18n -->
+      </figure>
+      <figure class="phone">
+        <div class="frame"><div class="notch"></div>
+          <img src="../screens/orders.png" alt="Kiko home screen list of captured orders" loading="lazy" width="295" height="640"></div>
+        <figcaption>प्रत्येक ऑर्डर, तुमच्यासाठी लिहिलेली</figcaption><!-- i18n -->
+      </figure>
+      <figure class="phone">
+        <div class="frame"><div class="notch"></div>
+          <img src="../screens/details.png" alt="Order details with items, quantities and total" loading="lazy" width="295" height="640"></div>
+        <figcaption>वस्तू, प्रमाण आणि एकूण</figcaption><!-- i18n -->
+      </figure>
+      <figure class="phone">
+        <div class="frame"><div class="notch"></div>
+          <img src="../screens/share.png" alt="WhatsApp message preview ready to share the order" loading="lazy" width="295" height="640"></div>
+        <figcaption>WhatsApp वर पाठवायला तयार</figcaption><!-- i18n -->
+      </figure>
+      <figure class="phone">
+        <div class="frame"><div class="notch"></div>
+          <img src="../screens/whatsapp.png" alt="Order delivered to the customer on WhatsApp" loading="lazy" width="295" height="640"></div>
+        <figcaption>ग्राहकाला पाठवली</figcaption><!-- i18n -->
+      </figure>
     </div>
   </div>
 </section>
