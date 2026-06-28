@@ -199,6 +199,14 @@
   .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
   .js .reveal.in{opacity:1;transform:none}
 
+  /* layered reveal for the showcase rows */
+  .js .feat{opacity:0;transform:translateY(34px);
+    transition:opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1)}
+  .js .feat.in{opacity:1;transform:none}
+  .js .feat .feat-phone{transform:translateY(24px) scale(.94);
+    transition:transform .85s cubic-bezier(.2,.7,.2,1)}
+  .js .feat.in .feat-phone{transform:none}
+
   /* ---------- problem vs solution ---------- */
   .compare{display:grid;grid-template-columns:1fr;gap:14px}
   .cmp{border-radius:var(--radius);padding:18px;border:1px solid var(--line)}
@@ -217,33 +225,34 @@
   /* ---------- how it works ---------- */
   .steps{display:grid;gap:14px}
   .step{display:flex;align-items:center;gap:14px;background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
-  .step .n{flex:0 0 40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:850;color:#fff;font-size:17px;background:linear-gradient(135deg,#5a2fd6,#4324a6)}
+  .step .n{flex:0 0 40px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:850;color:#fff;font-size:17px;background:linear-gradient(135deg,#5a2fd6,#4324a6)}
   .step .sx{font-size:16px;font-weight:800;letter-spacing:-.01em}
   .step .sx span{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
 
-  /* ---------- app screenshots ---------- */
-  .shots-row{
-    display:flex;gap:16px;overflow-x:auto;
-    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-    padding:4px 2px 12px;scrollbar-width:none;
+  /* ---------- app showcase (screens) ---------- */
+  .feat{
+    display:flex;flex-direction:column;align-items:center;gap:20px;
+    margin:0 auto 54px;max-width:340px;text-align:center;
   }
-  .shots-row::-webkit-scrollbar{display:none}
-  .phone{flex:0 0 auto;width:194px;scroll-snap-align:center;
-    display:flex;flex-direction:column;align-items:center;margin:0}
-  .phone .frame{
+  .feat:last-child{margin-bottom:6px}
+  .feat-phone{flex:0 0 auto;width:202px}
+  .feat-phone .frame{
     position:relative;width:100%;
-    background:#0f0a26;border-radius:30px;padding:7px;
-    box-shadow:var(--shadow);
+    background:#0f0a26;border-radius:32px;padding:8px;
+    box-shadow:0 22px 46px rgba(43,15,110,.22);
   }
-  .phone .notch{
-    position:absolute;top:9px;left:50%;transform:translateX(-50%);
-    width:46px;height:4px;border-radius:999px;background:rgba(255,255,255,.16);z-index:2;
+  .feat-phone .notch{
+    position:absolute;top:10px;left:50%;transform:translateX(-50%);
+    width:46px;height:4px;border-radius:999px;background:rgba(255,255,255,.18);z-index:2;
   }
-  .phone img{display:block;width:100%;border-radius:24px}
-  .phone figcaption{
-    font-size:12.5px;font-weight:700;color:var(--muted);
-    text-align:center;margin-top:12px;max-width:19ch;line-height:1.35;
+  .feat-phone img{display:block;width:100%;height:auto;border-radius:25px}
+  .feat-copy{max-width:32ch}
+  .feat-copy .kx{
+    width:44px;height:44px;border-radius:14px;display:inline-grid;place-items:center;
+    font-size:22px;background:#f0eafc;border:1px solid #e2d7f8;margin-bottom:13px;
   }
+  .feat-copy h3{font-size:20px;font-weight:840;letter-spacing:-.02em;line-height:1.22;margin-bottom:7px}
+  .feat-copy p{font-size:14.5px;color:var(--muted);line-height:1.5}
 
   /* ---------- any language ---------- */
   .lang{background:linear-gradient(180deg,#faf8ff,#f3eeff);border-radius:24px;border:1px solid var(--line);padding:26px 20px;text-align:center}
@@ -288,7 +297,7 @@
 
   @media (prefers-reduced-motion: reduce){
     .node,.ocard,.ocard li,.ocard .deliver,.arrow,.blink{animation:none !important;opacity:1 !important;transform:none !important}
-    .reveal{opacity:1 !important;transform:none !important;transition:none}
+    .reveal,.feat,.feat .feat-phone{opacity:1 !important;transform:none !important;transition:none}
   }
 
   /* small phones */
@@ -319,8 +328,13 @@
     .compare{grid-template-columns:1fr 1fr;max-width:780px;margin:0 auto}
     .steps{grid-template-columns:repeat(3,1fr);max-width:880px;margin:0 auto}
     .step{flex-direction:column;align-items:flex-start;gap:14px}
-    .shots-row{justify-content:flex-start;max-width:880px;margin:0 auto}
-    .phone{width:220px}
+    .feat{flex-direction:row;align-items:center;justify-content:center;
+      gap:64px;max-width:880px;text-align:left;margin-bottom:88px}
+    .feat--rev{flex-direction:row-reverse}
+    .feat-phone{width:250px}
+    .feat-copy{max-width:360px}
+    .feat-copy h3{font-size:26px}
+    .feat-copy p{font-size:16px;line-height:1.55}
     .lang{max-width:780px;margin:0 auto;padding:40px 30px}
     .grid{grid-template-columns:repeat(6,1fr);max-width:880px;margin:0 auto}
     .band .wrap{max-width:720px}
@@ -473,39 +487,62 @@
   </div>
 </section>
 
-<!-- ============ APP SCREENSHOTS ============ -->
-<section>
-  <div class="wrap reveal">
-    <div class="sec-head">
+<!-- ============ APP SHOWCASE (real screens) ============ -->
+<section class="showcase">
+  <div class="wrap">
+    <div class="sec-head reveal">
       <h2>Kiko ला काम करताना पाहा</h2><!-- i18n -->
       <p>कॉलपासून WhatsApp वर तयार ऑर्डरपर्यंत — प्रत्येक पायरी.</p><!-- i18n -->
     </div>
-    <div class="shots-row">
-      <figure class="phone">
-        <div class="frame"><div class="notch"></div>
-          <img src="../screens/call.png" alt="Incoming customer call being recorded by Kiko" loading="lazy" width="360" height="640"></div>
-        <figcaption>ग्राहक कॉल करतो — Kiko रेकॉर्ड करते</figcaption><!-- i18n -->
-      </figure>
-      <figure class="phone">
-        <div class="frame"><div class="notch"></div>
-          <img src="../screens/orders.png" alt="Kiko home screen list of captured orders" loading="lazy" width="295" height="640"></div>
-        <figcaption>प्रत्येक ऑर्डर, तुमच्यासाठी लिहिलेली</figcaption><!-- i18n -->
-      </figure>
-      <figure class="phone">
-        <div class="frame"><div class="notch"></div>
-          <img src="../screens/details.png" alt="Order details with items, quantities and total" loading="lazy" width="295" height="640"></div>
-        <figcaption>वस्तू, प्रमाण आणि एकूण</figcaption><!-- i18n -->
-      </figure>
-      <figure class="phone">
-        <div class="frame"><div class="notch"></div>
-          <img src="../screens/share.png" alt="WhatsApp message preview ready to share the order" loading="lazy" width="295" height="640"></div>
-        <figcaption>WhatsApp वर पाठवायला तयार</figcaption><!-- i18n -->
-      </figure>
-      <figure class="phone">
-        <div class="frame"><div class="notch"></div>
-          <img src="../screens/whatsapp.png" alt="Order delivered to the customer on WhatsApp" loading="lazy" width="295" height="640"></div>
-        <figcaption>ग्राहकाला पाठवली</figcaption><!-- i18n -->
-      </figure>
+
+    <div class="feat">
+      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+        <img src="../screens/call.png" alt="Incoming customer call being recorded by Kiko" loading="lazy" width="360" height="640"></div></div>
+      <div class="feat-copy">
+        <span class="kx">📞</span>
+        <h3>ग्राहक कॉल करतो — Kiko रेकॉर्ड करते</h3><!-- i18n -->
+        <p>नेहमीप्रमाणे फोनवर ऑर्डर घ्या — Kiko कॉल बॅकग्राउंडमध्ये रेकॉर्ड करते.</p><!-- i18n -->
+      </div>
+    </div>
+
+    <div class="feat feat--rev">
+      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+        <img src="../screens/orders.png" alt="Kiko home screen list of captured orders" loading="lazy" width="295" height="640"></div></div>
+      <div class="feat-copy">
+        <span class="kx">🧾</span>
+        <h3>प्रत्येक ऑर्डर, तुमच्यासाठी लिहिलेली</h3><!-- i18n -->
+        <p>टायपिंग नाही. प्रत्येक कॉल तुमच्या होम स्क्रीनवर एक स्वच्छ ऑर्डर कार्ड बनते.</p><!-- i18n -->
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+        <img src="../screens/details.png" alt="Order details with items, quantities and total" loading="lazy" width="295" height="640"></div></div>
+      <div class="feat-copy">
+        <span class="kx">📋</span>
+        <h3>वस्तू, प्रमाण आणि एकूण</h3><!-- i18n -->
+        <p>कोणतीही ऑर्डर उघडून प्रत्येक वस्तू, प्रमाण आणि एकूण पाहा — तपासायला तयार.</p><!-- i18n -->
+      </div>
+    </div>
+
+    <div class="feat feat--rev">
+      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+        <img src="../screens/share.png" alt="WhatsApp message preview ready to share the order" loading="lazy" width="295" height="640"></div></div>
+      <div class="feat-copy">
+        <span class="kx">📲</span>
+        <h3>WhatsApp वर पाठवायला तयार</h3><!-- i18n -->
+        <p>Kiko एक नीटनेटका WhatsApp मेसेज तयार करते, जो तुम्ही एका टॅपमध्ये पाठवू शकता.</p><!-- i18n -->
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+        <img src="../screens/whatsapp.png" alt="Order delivered to the customer on WhatsApp" loading="lazy" width="295" height="640"></div></div>
+      <div class="feat-copy">
+        <span class="kx">✅</span>
+        <h3>ग्राहकाला पाठवली</h3><!-- i18n -->
+        <p>तुमच्या ग्राहकाला किंवा डिलिव्हरी स्टाफला पूर्ण ऑर्डर लगेच WhatsApp वर मिळते.</p><!-- i18n -->
+      </div>
     </div>
   </div>
 </section>
@@ -590,7 +627,7 @@
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     },{threshold:.14});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    document.querySelectorAll('.reveal, .feat').forEach(function(el){ io.observe(el); });
   }
   /* if JS is off / reduce-motion / no IO, .reveal stays visible by default */
 </script>
