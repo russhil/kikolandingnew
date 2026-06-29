@@ -246,6 +246,7 @@
     width:46px;height:4px;border-radius:999px;background:rgba(255,255,255,.18);z-index:2;
   }
   .feat-phone img{display:block;width:100%;height:auto;border-radius:25px}
+  .feat-cap{font-size:13.5px;font-weight:800;letter-spacing:-.01em;color:var(--brand);text-align:center;margin-bottom:13px}
   .feat-copy{max-width:32ch}
   .feat-copy .kx{
     width:44px;height:44px;border-radius:14px;display:inline-grid;place-items:center;
@@ -254,13 +255,38 @@
   .feat-copy h3{font-size:20px;font-weight:840;letter-spacing:-.02em;line-height:1.22;margin-bottom:7px}
   .feat-copy p{font-size:14.5px;color:var(--muted);line-height:1.5}
 
-  /* ---------- any language ---------- */
-  .lang{background:linear-gradient(180deg,#faf8ff,#f3eeff);border-radius:24px;border:1px solid var(--line);padding:26px 20px;text-align:center}
-  .bubbles{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:16px 0 18px}
-  .bub{background:#fff;border:1px solid #e4daf8;border-radius:999px;padding:9px 15px;font-size:15px;font-weight:800;color:var(--brand);box-shadow:var(--shadow-sm)}
-  .bub.b2{color:#0891b2;border-color:#cdeff5}
-  .down{font-size:20px;color:#c4b4ee;margin-bottom:6px}
-  .result{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #cdeed9;border-radius:14px;padding:11px 16px;font-size:14px;font-weight:800;color:#0e7a3a;box-shadow:var(--shadow-sm)}
+  /* ---------- feature 1: languages ---------- */
+  .langs{background:linear-gradient(180deg,#faf8ff,#f3eeff);border-radius:24px;border:1px solid var(--line);padding:26px 18px;text-align:center}
+  .lang-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:0 0 20px}
+  .lang-chip{background:#fff;border:1px solid #e4daf8;border-radius:999px;padding:8px 15px;font-size:14.5px;font-weight:800;color:var(--brand);box-shadow:var(--shadow-sm)}
+  .lang-chip.c2{color:#0891b2;border-color:#cdeff5}
+  .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:15px;padding:11px 10px;text-align:left;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:6px}
+  .tcard .tc-lang{font-size:10px;font-weight:800;letter-spacing:.02em;color:var(--brand);text-transform:uppercase}
+  .tcard .tc-cust{font-size:12.5px;font-weight:800;line-height:1.1}
+  .tcard .tc-row{display:flex;justify-content:space-between;gap:6px;font-size:11px;font-weight:700;color:var(--ink);border-top:1px dashed #efeaf9;padding-top:6px}
+  .tcard .tc-row span{color:var(--muted);font-weight:700;white-space:nowrap}
+  .tcard .tc-total{font-size:11.5px;font-weight:800;color:#0e7a3a;margin-top:2px}
+  .langs .micro{font-size:13px;color:var(--muted);margin-top:18px}
+
+  /* ---------- feature 2: reports ---------- */
+  .report{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;max-width:440px;margin:0 auto}
+  .report-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line);background:var(--soft)}
+  .report-top .rt-title{font-size:13.5px;font-weight:800;text-align:left}
+  .report-top .rt-title span{display:block;font-size:11px;font-weight:600;color:var(--muted)}
+  .range-chip{font-size:11px;font-weight:800;color:var(--brand);background:#f0eafc;border:1px solid #e2d7f8;padding:5px 10px;border-radius:999px;white-space:nowrap}
+  .rtable{width:100%;border-collapse:collapse;font-size:11.5px}
+  .rtable th{font-size:9.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);text-align:left;padding:8px 14px;background:#fbfaff;font-weight:800}
+  .rtable th.amt,.rtable td.amt{text-align:right}
+  .rtable td{padding:9px 14px;border-top:1px solid var(--line);font-weight:700}
+  .rtable td.amt{font-weight:800;color:var(--brand)}
+  .fmt-row{display:flex;gap:9px;padding:13px 15px;border-top:1px solid var(--line)}
+  .fmt{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;font-weight:800;border-radius:12px;padding:11px;border:1.5px solid var(--line)}
+  .fmt.pdf{color:#d4541f;background:#fff7f5;border-color:#ffe0d6}
+  .fmt.xls{color:#0e7a3a;background:#f3fbf6;border-color:#cdeed9}
+  .share-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 15px 15px}
+  .saved{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#0e7a3a}
+  .wa-btn{display:inline-flex;align-items:center;gap:7px;background:var(--wa);color:#fff;font-weight:800;font-size:12.5px;padding:9px 13px;border-radius:11px;box-shadow:0 4px 12px rgba(37,211,102,.3)}
 
   /* ---------- who it's for ---------- */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
@@ -335,7 +361,11 @@
     .feat-copy{max-width:360px}
     .feat-copy h3{font-size:26px}
     .feat-copy p{font-size:16px;line-height:1.55}
-    .lang{max-width:780px;margin:0 auto;padding:40px 30px}
+    .langs{max-width:760px;margin:0 auto;padding:36px 30px}
+    .tri{gap:14px}
+    .tcard{padding:14px 14px;gap:8px}
+    .tcard .tc-cust{font-size:14px}
+    .tcard .tc-row{font-size:12.5px}
     .grid{grid-template-columns:repeat(6,1fr);max-width:880px;margin:0 auto}
     .band .wrap{max-width:720px}
 
@@ -496,7 +526,7 @@
     </div>
 
     <div class="feat">
-      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+      <div class="feat-phone"><div class="feat-cap">Receive call</div><div class="frame"><div class="notch"></div>
         <img src="../screens/call.png" alt="Incoming customer call being recorded by Kiko" loading="lazy" width="360" height="640"></div></div>
       <div class="feat-copy">
         <span class="kx">📞</span>
@@ -506,7 +536,7 @@
     </div>
 
     <div class="feat feat--rev">
-      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+      <div class="feat-phone"><div class="feat-cap">Order created on panel</div><div class="frame"><div class="notch"></div>
         <img src="../screens/orders.png" alt="Kiko home screen list of captured orders" loading="lazy" width="295" height="640"></div></div>
       <div class="feat-copy">
         <span class="kx">🧾</span>
@@ -516,7 +546,7 @@
     </div>
 
     <div class="feat">
-      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+      <div class="feat-phone"><div class="feat-cap">See order details</div><div class="frame"><div class="notch"></div>
         <img src="../screens/details.png" alt="Order details with items, quantities and total" loading="lazy" width="295" height="640"></div></div>
       <div class="feat-copy">
         <span class="kx">📋</span>
@@ -526,7 +556,7 @@
     </div>
 
     <div class="feat feat--rev">
-      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+      <div class="feat-phone"><div class="feat-cap">Send order to customer or staff</div><div class="frame"><div class="notch"></div>
         <img src="../screens/share.png" alt="WhatsApp message preview ready to share the order" loading="lazy" width="295" height="640"></div></div>
       <div class="feat-copy">
         <span class="kx">📲</span>
@@ -536,7 +566,7 @@
     </div>
 
     <div class="feat">
-      <div class="feat-phone"><div class="frame"><div class="notch"></div>
+      <div class="feat-phone"><div class="feat-cap">Order shared on WhatsApp</div><div class="frame"><div class="notch"></div>
         <img src="../screens/whatsapp.png" alt="Order delivered to the customer on WhatsApp" loading="lazy" width="295" height="640"></div></div>
       <div class="feat-copy">
         <span class="kx">✅</span>
@@ -547,22 +577,90 @@
   </div>
 </section>
 
-<!-- ============ ANY LANGUAGE ============ -->
+<!-- ============ FEATURE 1 · LANGUAGES ============ -->
 <section>
   <div class="wrap reveal">
-    <div class="lang">
-      <div class="sec-head" style="margin-bottom:6px">
-        <h2>Speaks your customer’s language</h2><!-- i18n -->
+    <div class="sec-head">
+      <h2>Your shop. Your language.</h2><!-- i18n -->
+      <p>Kiko works fully in English, Hindi and Gujarati — orders, screens, everything.</p><!-- i18n -->
+    </div>
+    <div class="langs">
+      <div class="lang-chips">
+        <span class="lang-chip">English</span>
+        <span class="lang-chip c2">हिंदी</span>
+        <span class="lang-chip">ગુજરાતી</span>
       </div>
-      <div class="bubbles">
-        <span class="bub">ગુજરાતી</span>
-        <span class="bub b2">हिन्दी</span>
-        <span class="bub">मराठी</span>
-        <span class="bub b2">English</span>
+      <!-- same order, three scripts (kept in all 3 languages on every page) -->
+      <div class="tri">
+        <div class="tcard">
+          <div class="tc-lang">English</div>
+          <div class="tc-cust">Ramesh</div>
+          <div class="tc-row">Butter Paratha <span>× 3</span></div>
+          <div class="tc-row">Amul Butter <span>× 2</span></div>
+          <div class="tc-total">Total ₹240</div>
+        </div>
+        <div class="tcard">
+          <div class="tc-lang">हिंदी</div>
+          <div class="tc-cust">रमेश</div>
+          <div class="tc-row">बटर पराठा <span>× 3</span></div>
+          <div class="tc-row">अमूल बटर <span>× 2</span></div>
+          <div class="tc-total">कुल ₹240</div>
+        </div>
+        <div class="tcard">
+          <div class="tc-lang">ગુજરાતી</div>
+          <div class="tc-cust">રમેશ</div>
+          <div class="tc-row">બટર પરાઠા <span>× 3</span></div>
+          <div class="tc-row">અમૂલ બટર <span>× 2</span></div>
+          <div class="tc-total">કુલ ₹240</div>
+        </div>
       </div>
-      <div class="down">↓</div>
-      <span class="result">🧾 One clean, ready order</span><!-- i18n -->
-      <p style="font-size:13.5px;color:var(--muted);margin-top:16px;max-width:30ch;margin-left:auto;margin-right:auto">Kiko understands order calls in any Indian language and writes them in one standard format.</p><!-- i18n -->
+      <p class="micro">Same order, three scripts — switch anytime. Nothing to learn.</p><!-- i18n -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE 2 · REPORTS ============ -->
+<section style="background:var(--soft)">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <h2>Your orders, ready to share.</h2><!-- i18n -->
+      <p>Export any day’s orders as a PDF or Excel — download it or send it on WhatsApp.</p><!-- i18n -->
+    </div>
+    <div class="report">
+      <div class="report-top">
+        <div class="rt-title">Orders report<span>Gupta Kirana Store</span></div><!-- i18n -->
+        <span class="range-chip">📅 This month</span><!-- i18n -->
+      </div>
+      <table class="rtable">
+        <thead><tr><th>Order</th><th>Customer</th><th>Items</th><th class="amt">Total</th></tr></thead><!-- i18n -->
+        <tbody>
+          <tr><td>#001</td><td>Ramesh</td><td>5</td><td class="amt">₹480</td></tr>
+          <tr><td>#002</td><td>Sunita</td><td>4</td><td class="amt">₹900</td></tr>
+          <tr><td>#003</td><td>Mohan</td><td>3</td><td class="amt">₹700</td></tr>
+        </tbody>
+      </table>
+      <div class="fmt-row">
+        <span class="fmt pdf">📄 PDF</span>
+        <span class="fmt xls">📊 Excel</span>
+      </div>
+      <div class="share-row">
+        <span class="saved">✓ Saved to Downloads</span><!-- i18n -->
+        <span class="wa-btn">💬 Share on WhatsApp</span><!-- i18n -->
+      </div>
+    </div>
+    <div class="steps" style="margin-top:26px">
+      <div class="step">
+        <div class="n">1</div>
+        <div class="sx">Pick a date range<span>Today, last 7 days, this month — or custom</span></div><!-- i18n -->
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div class="sx">Tap Export<span>Choose PDF or Excel</span></div><!-- i18n -->
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div class="sx">Save or share<span>To your phone, or on WhatsApp in one tap</span></div><!-- i18n -->
+      </div>
     </div>
   </div>
 </section>
